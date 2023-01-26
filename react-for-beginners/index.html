@@ -1,37 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <div id="root"></div>
-  </body>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script
-    crossorigin
-    src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script
-    crossorigin
-    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
 
-  <script type="text/babel">
-    const DOM = ReactDOM.createRoot(document.getElementById('root'));
-    let counter = 0;
+  <html>
+    <body>
+      <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    function countUp() {
-      counter++;
-      Render();
-    }
+    <script type="text/babel">
+      const DOM = ReactDOM.createRoot(document.getElementById('root'));
+      let [minutes, setMinutes] = React.useState();
+      const onChange = () => {
+        console.log('sombody wrote');
+      };
 
-    function Render() {
-      return DOM.render(<Container />);
-    }
-
-    function Container() {
-      return (
-        <div>
-          <h3>Total clicks: {counter}</h3>
-          <button onClick={countUp}>Click me</button>
-        </div>
-      );
-    }
-    Render();
-  </script>
+      function App() {
+        return (
+          <div>
+            <h1 className="hi">Super Converter</h1>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={minutes}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={onChange}
+            />
+            <label htmlFor="hours">Hours</label>
+            <input id="hours" placeholder="Hours" type="number" />
+          </div>
+        );
+      }
+      DOM.render(<App />);
+    </script>
+  </html>
 </html>
