@@ -13,20 +13,22 @@
 
   <script type="text/babel">
     const DOM = ReactDOM.createRoot(document.getElementById('root'));
-
     let counter = 0;
+
     function countUp() {
-      counter = counter + 1;
+      counter++;
       Render();
     }
+
     function Render() {
-      DOM.render(<Container />);
+      return DOM.render(<Container />);
     }
+
     function Container() {
       return (
         <div>
-          <h3>Total Click : {counter}</h3>
-          <button Onclick={countUp}> Click me!! </button>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={countUp}>Click me</button>
         </div>
       );
     }
