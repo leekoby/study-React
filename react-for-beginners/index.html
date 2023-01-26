@@ -12,26 +12,24 @@
     src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
   <script type="text/babel">
-    const root = document.getElementById('root');
-    const Title = () => (
-      <h3 id="title" onMouseEnter={() => console.log('mouse enter')}>
-        hello i'm a span
-      </h3>
-    );
-    const Button = () => (
-      <button
-        style={{ backgroundColor: 'tomato' }}
-        onClick={() => console.log("i'm clicked!!")}>
-        Click me!!{' '}
-      </button>
-    );
+    const DOM = ReactDOM.createRoot(document.getElementById('root'));
 
-    const Container = (
-      <div>
-        <Title />
-        <Button />
-      </div>
-    );
-    ReactDOM.render(Container, root);
+    let counter = 0;
+    function countUp() {
+      counter = counter + 1;
+      Render();
+    }
+    function Render() {
+      DOM.render(<Container />);
+    }
+    function Container() {
+      return (
+        <div>
+          <h3>Total Click : {counter}</h3>
+          <button Onclick={countUp}> Click me!! </button>
+        </div>
+      );
+    }
+    Render();
   </script>
 </html>
