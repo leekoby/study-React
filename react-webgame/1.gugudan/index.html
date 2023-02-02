@@ -5,6 +5,59 @@
   </head>
   <body>
     <div id="root"></div>
-    <script src="/dist/app.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      'use strict';
+      const GuGuDan = () => {
+        const [first, setFirst] = React.useState(Math.ceil(Math.random() * 9));
+        const [second, setSecond] = React.useState(
+          Math.ceil(Math.random() * 9)
+        );
+        const [value, setValue] = React.useState('');
+        const [result, setResult] = React.useState('');
+        const inputEl = React.useRef(null);
+
+        const onSubmitForm = e => {
+          e.preventDefault();
+          if (parseInt(value) === first * second) {
+            setResult('정답');
+            setFirst(Math.ceil(Math.random() * 9));
+            setSecond(Math.ceil(Math.random() * 9));
+            setValue('');
+            inputEl.current.focus();
+          } else {
+            setResult('땡');
+            setValue('');
+            inputEl.current.focus();
+          }
+        };
+        return (
+          <div>
+            <div>
+              {this.state.first}곱하기 {this.state.second}는?
+              <form onSubmit={1}>
+                <input
+                  type='number'
+                  value={this.state.value}
+                  onChange={e => this.setState({ value: e.target.value })}
+                />
+                <button>입력!</button>
+              </form>
+              <div>{this.state.result}</div>
+            </div>
+          </div>
+        );
+      };
+    </script>
+    <script type="text/babel">
+      ReactDOM.render(<GuGuDan />, document.querySelector('#root'));
+    </script>
   </body>
 </html>
