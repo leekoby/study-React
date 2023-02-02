@@ -39,20 +39,21 @@
           }
         };
         return (
-          <div>
+          <React.Fragment>
             <div>
-              {this.state.first}곱하기 {this.state.second}는?
-              <form onSubmit={1}>
-                <input
-                  type='number'
-                  value={this.state.value}
-                  onChange={e => this.setState({ value: e.target.value })}
-                />
-                <button>입력!</button>
-              </form>
-              <div>{this.state.result}</div>
+              {first} 곱하기 {second}는?
             </div>
-          </div>
+            <form onSubmit={onSubmitForm}>
+              <input
+                ref={inputEl}
+                type='number'
+                value={value}
+                onChange={e => setValue(e.target.value)}
+              />
+              <button>입력!</button>
+            </form>
+            <div id='result'>{result}</div>
+          </React.Fragment>
         );
       };
     </script>
