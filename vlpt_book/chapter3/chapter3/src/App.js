@@ -1,14 +1,11 @@
-import React, { Component } from 'react'
-import MyComponent from "./MyComponent";
-import './App.css';
+import React from 'react';
+import Say from './Say';
 
-class App extends Component {
-  render() {
-    return <MyComponent />
-  }
-
+function App() {
+  return (
+    // <MyComponent name="React" favoriteNumber={7} color="red" >리액트인 것이다</MyComponent>
+    <Say />
+  );
 }
-
-
 
 export default App;
