@@ -16,7 +16,7 @@ const Info = () => {
       console.log('unmount');
       console.log(name);
     }
-  }, []);
+  }, [name]);
 
 
   const onChangeName = e => {
