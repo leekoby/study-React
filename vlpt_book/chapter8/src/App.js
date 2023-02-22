@@ -1,12 +1,8 @@
 import './App.css';
-import Info from './Info';
-import { useState } from 'react'
-import CounterUseReducer from './CounterUseReducer';
+import Average from './Average';
 const App = () => {
-  const [visible, setVisible] = useState(false)
-  console.log(visible)
   return (
-    <CounterUseReducer />
+    <Average />
   );
 }
 
